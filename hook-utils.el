@@ -10,9 +10,10 @@
 
 ;;; Commentary:
 
-;;; This package defines a few functions useful for manipulating hooks
+;;; This package defines a few functions useful for manipulating hooks. The
+;;; functions are autoloaded when installing from a package.
 
-;;; Installation:
+;;; Manual installation:
 
 ;; To install, put this file somewhere in your load-path and add the following
 ;; to your .emacs file:
@@ -37,13 +38,12 @@
 
 ;;; Code:
 
-;;Use the common-lisp library.
-(require 'cl)
-
+;;;###autoload
 (defun hook-utils-add-hook-to-all (hooks fn)
   "Add a function to a list of hooks."
   (mapcar (lambda (hook) (add-hook hook fn)) hooks))
 
+;;;###autoload
 (defun hook-utils-remove-hook-from-all (hooks fn)
   "Removes a function from a list of hooks."
   (mapcar (lambda (hook) (remove-hook hook fn)) hooks))
